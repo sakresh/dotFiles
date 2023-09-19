@@ -26,11 +26,18 @@ super + shift + d
 
 # launch nmtui
 super + shift + w
-	alacritty -e nmtui
-
+	  nm-connection-editor
 # power-menu
 super + BackSpace
      ~/.config/rofi/powermenu.sh
+
+super + shift + q 
+     ~/.config/rofi/powermenu.sh
+
+# launch lf
+super + r
+    alacritty -e lf
+
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -162,11 +169,11 @@ XF86AudioMute
 
 # Brightness up
 XF86MonBrightnessUp
-  xbacklight -inc 2
+  xbacklight -inc 5
 
 # And brightness down
 XF86MonBrightnessDown
-  xbacklight -dec 2
+  xbacklight -dec 5
 
 # Screenshot
 Print
@@ -184,6 +191,9 @@ super + e
 
 super + n
   thunar
+
+super + c 
+  code
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh

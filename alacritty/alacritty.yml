@@ -2,7 +2,7 @@
 colors:
   # Default colors
   primary:
-    background: '0x1a1b26'
+    background: '0x000009'
     foreground: '0xa9b1d6'
 
   # Normal colors
@@ -53,6 +53,6 @@ live_config_reload: true
 
 font:
   normal:
-    family: HackNerdFont
+    family: JetBrainsMonoNL Nerd Font
     style: Regular
-  size: 8
+  size: 8.5
