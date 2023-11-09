@@ -49,3 +49,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#startx when loggedin
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
+  exec startx &>/dev/null 
+fi
+
