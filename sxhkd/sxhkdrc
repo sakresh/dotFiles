@@ -8,9 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
-                -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+	dmenu_run
 
 # show open window
 super + ctrl + d
@@ -29,10 +27,10 @@ super + shift + w
 	  nm-connection-editor
 # power-menu
 super + BackSpace
-     ~/.config/rofi/powermenu.sh
+     ~/.local/scripts/power.sh
 
 super + shift + q 
-     ~/.config/rofi/powermenu.sh
+     ~/.local/scripts/power.sh
 
 # launch lf
 super + r
@@ -184,10 +182,10 @@ super + Print
 
 # Shortcuts
 super + w
-  brave
+  firefox
 
 super + e
-  firefox
+  google-chrome
 
 super + n
   thunar
