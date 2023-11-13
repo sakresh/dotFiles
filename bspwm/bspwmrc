@@ -23,7 +23,6 @@ bspc config normal_border_color         "#073642"
 bspc config active_border_color         "#073642"
 
 # Autostart
-
 # Bar
 ~/.config/polybar/launch.sh &
 
@@ -35,9 +34,6 @@ bspc config active_border_color         "#073642"
 
 # Wallpaper
 nitrogen --restore &
-
-# Dex
-# dex -a -s /etc/xdg/autostart/:~/.config/autostart/  &
 
 # Network Applet
 nm-applet --indicator &
