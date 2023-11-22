@@ -82,7 +82,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_q     ), kill)
 
     -- powermenu
-    , ((modm,               xK_BackSpace     ), spawn "/home/.local/scripts/power.sh")
+    , ((modm,               xK_BackSpace     ), spawn "~/.local/scripts/power.sh")
+    , ((modm .|. shiftMask, xK_q     ), spawn "~/.local/scripts/power.sh")
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), windows W.swapMaster)
