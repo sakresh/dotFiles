@@ -4,7 +4,9 @@
 #define TERMINAL "alacritty"
 #define TERMCLASS "alacritty"
 #define BROWSER "thorium-browser"
-#define BROWSER1 "firefox"
+#define FIREFOX "firefox"
+#define CODE "code"
+#define ANDROID "android-studio-beta"
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -157,7 +159,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_minus,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_BackSpace,	spawn,		{.v = (const char*[]){ "power", NULL } } },
+	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("power") },
 	{ MODKEY|ShiftMask,		XK_BackSpace,	spawn,		{.v = (const char*[]){ "sysact", NULL } } },
 
 	{ MODKEY,			XK_Tab,		view,		{0} },
@@ -166,7 +168,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_q,		spawn,		{.v = (const char*[]){ "power", NULL } } },
 	{ MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
-	{ MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ BROWSER1, NULL } } },
+	{ MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ FIREFOX, NULL } } },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
 	{ MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lfub", NULL } } },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
@@ -214,8 +216,8 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "profanity", NULL } } },
-	/* { MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("") }, */
+	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ CODE , NULL } } },
+	{ MODKEY|ShiftMask,		XK_c,		spawn,		{.v = (const char*[]){ ANDROID, NULL } } }, 
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
@@ -239,7 +241,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Page_Down,	shifttag,	{ .i = +1 } },
 	{ MODKEY,			XK_Insert,	spawn,		SHCMD("xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") },
 
-	{ MODKEY,			XK_F1,		spawn,		SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },
+	/* { MODKEY,			XK_F1,		spawn,		SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") }, */
 	{ MODKEY,			XK_F2,		spawn,		{.v = (const char*[]){ "tutorialvids", NULL } } },
 	{ MODKEY,			XK_F3,		spawn,		{.v = (const char*[]){ "displayselect", NULL } } },
 	{ MODKEY,			XK_F4,		spawn,		SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
