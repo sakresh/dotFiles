@@ -71,6 +71,6 @@ static const struct arg args[] = {
 	{ run_command, "󰓃 [%s] | ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
 	{ battery_perc,  "󰂂 [%s", "BAT0" },
 	{ battery_state,  "%s] | ", "BAT0" },
-	{ datetime, "[%s] | ",           "%a %b %d" },
-	{ datetime, "[%s]",           "%r" },
+	{ datetime, " [%s] | ",           "%a %b %d" },
+	{ datetime, " [%s]",           "%r" },
 };
