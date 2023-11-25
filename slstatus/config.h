@@ -69,7 +69,8 @@ static const struct arg args[] = {
 	{ netspeed_rx, " [ %sB/s", "wlan0" },
 	{ netspeed_tx, "  %sB/s] | ", "wlan0" },
 	{ run_command, "󰓃 [%s] | ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
-	{ battery_perc,  " 󰂂 [%s%] ", "BAT0" },
-	{ battery_state,  "%s | ", "BAT0" },
-	{ datetime, "%s",           "%a %b %d %r" },
+	{ battery_perc,  "󰂂 [%s", "BAT0" },
+	{ battery_state,  "%s] | ", "BAT0" },
+	{ datetime, "[%s] | ",           "%a %b %d" },
+	{ datetime, "[%s]",           "%r" },
 };
