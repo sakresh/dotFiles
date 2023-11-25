@@ -55,3 +55,9 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec startx &>/dev/null 
 fi
 
+#Path
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/Flutter/bin"
+export BROWSER="thorium-browser"
+export EDITOR="nvim"
+export TERMINAL="alacritty"
