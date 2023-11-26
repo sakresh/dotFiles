@@ -65,7 +65,8 @@ static const char unknown_str[] = " ";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ wifi_essid, "  %s", "wlan0" },
+	{ run_command, " [%s] - ", "uname -r" },
+	{ wifi_essid, " %s", "wlan0" },
 	{ netspeed_rx, " [ %sB/s", "wlan0" },
 	{ netspeed_tx, " -  %sB/s] - ", "wlan0" },
 	{ run_command, "%s - ", "~/.local/bin/volume" },
