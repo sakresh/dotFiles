@@ -68,7 +68,7 @@ static const struct arg args[] = {
 	{ wifi_essid, "  %s", "wlan0" },
 	{ netspeed_rx, " [ %sB/s", "wlan0" },
 	{ netspeed_tx, " -  %sB/s] - ", "wlan0" },
-	{ run_command, "[%s] - ", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
+	{ run_command, "%s - ", "~/.local/bin/volume" },
 	{ battery_perc,  "[%s", "BAT0" },
 	{ battery_state,  "%s] - ", "BAT0" },
 	{ datetime, "[%s] - ", "%a %b %d" },
