@@ -6,8 +6,8 @@
 case $BLOCK_BUTTON in
 	3) notify-send "🔋 Battery module" "🔋: discharging
 🛑: not charging
-♻ : stagnant charge
-🔌: charging
+♻: stagnant charge
+: charging
 ⚡: charged
 ❗: battery very low!
 - Scroll to change adjust xbacklight." ;;
