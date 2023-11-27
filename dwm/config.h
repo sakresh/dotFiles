@@ -22,7 +22,7 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = { "JetBrains Mono:size=7","Hack Nerd Font Mono:size=12"}; /* "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true" */
-static char normbgcolor[]           = "#000000";
+static char normbgcolor[]           = "#2E3440";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#000000";
@@ -200,6 +200,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_d,		spawn,          {.v = (const char*[]){ "dmenu_run", NULL } } },
 	{ MODKEY|ShiftMask,		XK_d,		spawn,		{.v = (const char*[]){ "passmenu", NULL } } },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
+	{ ControlMask,			XK_f,		spawn,	        {.v = (const char*[]){ TERMINAL, "-e", "sudo","cd / && fzf -i", NULL } } },
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
 	{ MODKEY,			XK_g,		shiftview,	{ .i = -1 } },
 	{ MODKEY|ShiftMask,		XK_g,		shifttag,	{ .i = -1 } },
@@ -260,7 +261,7 @@ static const Key keys[] = {
 
 	{ 0,				XK_Print,	spawn,		SHCMD("scrot \"$HOME/Pictures/screenshot-$(date +%F_%T).png\"") },
 	{ ShiftMask,			XK_Print,	spawn,		{.v = (const char*[]){ "maimpick", NULL } } },
-	{ MODKEY,			XK_Print,	spawn,		{.v = (const char*[]){ "dmenurecord", NULL } } },
+	{ MODKEY,			XK_Print,	spawn,		SHCMD("~/.local/bin/screenshot")},
 	{ MODKEY|ShiftMask,		XK_Print,	spawn,		{.v = (const char*[]){ "dmenurecord", "kill", NULL } } },
 	{ MODKEY,			XK_Delete,	spawn,		{.v = (const char*[]){ "dmenurecord", "kill", NULL } } },
 	{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },
