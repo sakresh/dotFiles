@@ -32,7 +32,7 @@ window:
     y: 6
   decorations: none
 
-  opacity: 0.9
+  opacity: 0.7
   dynamic_title: true
 
   history: 10000
@@ -53,6 +53,10 @@ live_config_reload: true
 
 font:
   normal:
-    family: JetBrainsMonoNL Nerd Font
+    family: JetBrains Mono
     style: Regular
-  size: 8.5
+  size: 9
+
+
+key_bindings:
+  - { key: F, mods: Control, chars: "fzf -i" }
