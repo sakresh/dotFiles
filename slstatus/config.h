@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 100;
+const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "-";
@@ -65,12 +65,13 @@ static const char unknown_str[] = "-";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, " [%s] - ", "uname -r" },
-	{ wifi_essid, "[%s] -", "wlan0" },
-	/* { netspeed_rx, " [ %sB/s", "wlan0" },*/
-	/* { netspeed_tx, " -  %sB/s] - ", "wlan0" },*/
-	{ run_command, " %s - ", "~/.local/bin/volume" },
-	{ run_command, " %s - ", "~/.local/bin/battery" },
+	/* { run_command, " [%s] - ", "uname -r" },*/
+	{ run_command, " %s - ", "~/.local/bin/music" },
+	{ wifi_essid, " [%s] -", "wlan0" },
+	{ netspeed_rx, " [ %sB/s", "wlan0" },
+	{ netspeed_tx, " -  %sB/s] - ", "wlan0" },
+	{ run_command, "%s - ", "~/.local/bin/volume" },
+	{ run_command, "%s - ", "~/.local/bin/battery" },
 	/* { battery_perc,  "[%s", "BAT0" }, */
 	/* { battery_state,  "%s] - ", "BAT0" }, */
 	{ run_command, "%s", "~/.local/bin/clock" },
