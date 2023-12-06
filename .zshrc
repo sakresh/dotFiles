@@ -45,6 +45,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 alias ls="ls --color=auto"
 alias la="ls -la"
 alias vim="nvim"
+alias ff="cd \$(fzf -i | rev | cut -d '/' -f 2- | rev)"
 
 #Auto Completion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
