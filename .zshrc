@@ -44,6 +44,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 #alias
 alias ls="ls --color=auto"
 alias la="ls -la"
+alias vim="nvim"
 
 #Auto Completion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -52,12 +53,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #startx when loggedin
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then 
-  exec startx &>/dev/null 
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  exec startx &>/dev/null
 fi
 
 #Path
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Flutter/bin"
 export BROWSER="thorium-browser"
 export EDITOR="nvim"

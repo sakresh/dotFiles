@@ -21,8 +21,8 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "JetBrains Mono:size=7","Hack Nerd Font Mono:size=12"}; /* "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true" */
-static char normbgcolor[]           = "#2E3440";
+static char *fonts[]          = { "JetBrains Mono:size=7","Hack Nerd Font Mono:size=12", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"}; /* "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true" */
+static char normbgcolor[]           = "#000000";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#000000";
@@ -173,7 +173,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ FIREFOX, NULL } } },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
 	{ MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ FILEMANAGER , NULL } } },
-	{ MODKEY|ShiftMask,		XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
+	{ MODKEY|ShiftMask,		XK_r,		spawn,	SHCMD(TERMINAL " -e lf") },
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
 	{ MODKEY,			XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
@@ -200,7 +200,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_d,		spawn,          {.v = (const char*[]){ "dmenu_run", NULL } } },
 	{ MODKEY|ShiftMask,		XK_d,		spawn,		{.v = (const char*[]){ "passmenu", NULL } } },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
-	{ ControlMask,			XK_f,		spawn,	        {.v = (const char*[]){ TERMINAL, "-e", "sudo","cd / && fzf -i", NULL } } },
+	/* { MODKEY|ControlMask,		XK_f,		spawn,	        {.v = (const char*[]){ TERMINAL, "-e","cd / && fzf -i", NULL } } }, */
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
 	{ MODKEY,			XK_g,		shiftview,	{ .i = -1 } },
 	{ MODKEY|ShiftMask,		XK_g,		shifttag,	{ .i = -1 } },
@@ -220,14 +220,14 @@ static const Key keys[] = {
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ CODE , NULL } } },
-	{ MODKEY|ShiftMask,		XK_c,		spawn,		{.v = (const char*[]){ ANDROID, NULL } } }, 
+	{ MODKEY|ShiftMask,		XK_c,		spawn,		{.v = (const char*[]){ ANDROID, NULL } } },
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	{ MODKEY|ShiftMask,		XK_b,		spawn,		{.v = (const char*[]){ BLUETOOTH , NULL } } },
-	{ MODKEY,			XK_n,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "nvim", "-c", "VimwikiIndex", NULL } } },
-	{ MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks") },
+	{ MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e nvim") },
+	{ MODKEY|ShiftMask,		XK_n,		spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "5", NULL } } },
 	{ MODKEY,			XK_m,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
-	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ MODKEY|ShiftMask,		XK_m,		spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "5", NULL } } },
 	{ MODKEY,			XK_comma,	spawn,		{.v = (const char*[]){ "mpc", "prev", NULL } } },
 	{ MODKEY|ShiftMask,		XK_comma,	spawn,		{.v = (const char*[]){ "mpc", "seek", "0%", NULL } } },
 	{ MODKEY,			XK_period,	spawn,		{.v = (const char*[]){ "mpc", "next", NULL } } },
