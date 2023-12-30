@@ -45,6 +45,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 alias ls="ls --color=auto"
 alias la="ls -la"
 alias vim="nvim"
+alias sd="setxkbmap us -v dvorak"
+alias sq="setxkbmap us"
 alias ff="cd \$(fzf -i | rev | cut -d '/' -f 2- | rev)"
 
 #Auto Completion
@@ -55,7 +57,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 #startx when loggedin
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec startx &>/dev/null
+    exec startx &>/dev/null
 fi
 
 #Path
