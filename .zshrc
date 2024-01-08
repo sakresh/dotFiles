@@ -44,7 +44,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 #alias
 alias ls="ls --color=auto"
 alias la="ls -la"
-alias vim="nvim"
+alias vim="neovide"
 alias sd="setxkbmap us -v dvorak"
 alias sq="setxkbmap us"
 alias ff="cd \$(fzf -i | rev | cut -d '/' -f 2- | rev)"
