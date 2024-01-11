@@ -33,7 +33,7 @@ case 1 in
 	$((vol >= 70)) ) icon="" ;;
 	$((vol >= 30)) ) icon="" ;;
 	$((vol >= 1)) ) icon="" ;;
-	* ) echo 🔇 && exit ;;
+	* ) echo 󰝟 && exit ;;
 esac
 
 echo "$icon[$vol%]"

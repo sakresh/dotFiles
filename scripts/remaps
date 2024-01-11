@@ -1,2 +1,1 @@
 xset r rate 350 50
-setxkbmap -option caps:ctrl_modifier,altwin:menu_win
