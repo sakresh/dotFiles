@@ -1,5 +1,7 @@
 #!/bin/sh
 
+dunst &
+
 slstatus &
 
 nitrogen --restore &
