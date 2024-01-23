@@ -1,7 +1,7 @@
 #Prompt and colors
 
 function parse_git_branch() {
-    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1 ]/p'
 }
 
 autoload -U colors && colors	# Load colors
@@ -64,14 +64,16 @@ lfcd () {
 }
 
 #alias
+alias gcred="git config --global credential.helper store"
 alias ls="ls --color=auto"
 alias la="ls -la"
 alias js="cd ~/Projects/JavaScript/"
 alias rs="cd ~/Projects/Rust/"
-alias vim="neovide"
+alias vim="nvim"
 alias sd="setxkbmap us -v dvorak"
 alias sq="setxkbmap us"
 alias f="cd \$(fzf -i | rev | cut -d '/' -f 2- | rev)"
+alias o="vim \$(fzf -i)"
 
 #Auto Completion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
