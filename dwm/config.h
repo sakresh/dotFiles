@@ -1,17 +1,16 @@
-/* See LICENSE file for copyright and license details. */
-
 /* Constants */
 #define TERMINAL "alacritty"
 #define TERMCLASS "alacritty"
 #define BROWSER "thorium-browser"
 #define FIREFOX "firefox"
 #define CODE "code"
-#define ANDROID "android-studio-beta"
+/* #define ANDROID "android-studio-beta" */
 #define FILEMANAGER "thunar"
 #define BLUETOOTH "blueberry"
+/* #define NEO "neovide" */
 
 /* appearance */
-static unsigned int borderpx  = 2;        /* border pixel of windows */
+static unsigned int borderpx  = 1;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 15;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 15;       /* vert inner gap between windows */
@@ -26,8 +25,10 @@ static char normbgcolor[]           = "#000000";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#000000";
-static char selbordercolor[]        = "#88c0d0";
-static char selbgcolor[]            = "#88c0d0";
+static char selbordercolor[]        = "#ebbcba"; /*ROSEPINE*/
+/* static char selbordercolor[]        = "#88c0d0";NORD */
+static char selbgcolor[]            = "#ebbcba"; /*ROSEPINE*/
+/* static char selbgcolor[]            = "#88c0d0";NORD */
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -166,39 +167,39 @@ static const Key keys[] = {
 
 	{ MODKEY,			XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_Tab,		quit,		{0}, */
-	{ MODKEY,			XK_q,		killclient,	{0} },
-	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("~/.local/bin/power") },
-	{ MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
-	{ MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ FIREFOX, NULL } } },
-	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
-	{ MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ FILEMANAGER , NULL } } },
-	{ MODKEY|ShiftMask,		XK_r,		spawn,	SHCMD(TERMINAL " -e lf") },
-	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,			XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,		XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
-	{ MODKEY,			XK_o,		incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } },
-	{ MODKEY,			XK_p,			spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
-	{ MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("mpc pause; pauseallmpv") },
-	{ MODKEY,			XK_bracketleft,		spawn,		{.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
-	{ MODKEY|ShiftMask,		XK_bracketleft,		spawn,		{.v = (const char*[]){ "mpc", "seek", "-60", NULL } } },
-	{ MODKEY,			XK_bracketright,	spawn,		{.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
-	{ MODKEY|ShiftMask,		XK_bracketright,	spawn,		{.v = (const char*[]){ "mpc", "seek", "+60", NULL } } },
-	{ MODKEY,			XK_backslash,		view,		{0} },
+    { MODKEY,			XK_q,		killclient,	{0} },
+    { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("~/.local/bin/power") },
+    { MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
+    { MODKEY|ShiftMask,		XK_w,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
+    { MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ FIREFOX, NULL } } },
+    /* { MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") }, */
+    { MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "yazi", NULL } } },
+    { MODKEY|ShiftMask,		XK_r,		spawn,	{.v = (const char*[]){ FILEMANAGER, NULL } } },
+    { MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
+    { MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
+    { MODKEY,			XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
+    { MODKEY|ShiftMask,		XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
+    { MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
+    { MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
+    { MODKEY,			XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
+    { MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
+    { MODKEY,			XK_o,		incnmaster,     {.i = +1 } },
+    { MODKEY|ShiftMask,		XK_o,		incnmaster,     {.i = -1 } },
+    { MODKEY,			XK_p,			spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
+    { MODKEY|ShiftMask,		XK_p,			spawn,		SHCMD("mpc pause; pauseallmpv") },
+    { MODKEY,			XK_bracketleft,		spawn,		{.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
+    { MODKEY|ShiftMask,		XK_bracketleft,		spawn,		{.v = (const char*[]){ "mpc", "seek", "-60", NULL } } },
+    { MODKEY,			XK_bracketright,	spawn,		{.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
+    { MODKEY|ShiftMask,		XK_bracketright,	spawn,		{.v = (const char*[]){ "mpc", "seek", "+60", NULL } } },
+    { MODKEY,			XK_backslash,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("") }, */
 
 	{ MODKEY,			XK_a,		togglegaps,	{0} },
 	{ MODKEY|ShiftMask,		XK_a,		defaultgaps,	{0} },
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
-	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
+    { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("~/.local/bin/record") },
 	{ MODKEY,			XK_d,		spawn,          {.v = (const char*[]){ "dmenu_run", NULL } } },
-	{ MODKEY|ShiftMask,		XK_d,		spawn,		{.v = (const char*[]){ "passmenu", NULL } } },
+	{ MODKEY|ShiftMask,		XK_d,		spawn,		SHCMD("~/.local/bin/displayselect") },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	/* { MODKEY|ControlMask,		XK_f,		spawn,	        {.v = (const char*[]){ TERMINAL, "-e","cd / && fzf -i", NULL } } }, */
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
@@ -225,6 +226,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	{ MODKEY|ShiftMask,		XK_b,		spawn,		{.v = (const char*[]){ BLUETOOTH , NULL } } },
 	{ MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e nvim") },
+    /* { MODKEY,			XK_n,		spawn,		{.v = (const char*[]){ NEO, NULL } } }, */
 	{ MODKEY|ShiftMask,		XK_n,		spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "5", NULL } } },
 	{ MODKEY,			XK_m,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "5", NULL } } },

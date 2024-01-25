@@ -4,15 +4,26 @@
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"JetBrains Mono:size=7"
+	"JetBrains Mono:size=7",
+	"NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"
 };
+static const unsigned int bgalpha = 0xe0;
+static const unsigned int fgalpha = OPAQUE;
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#ffffff", "#2E3440" },
-	[SchemeSel] = { "#000000", "#88c0d0" },
+	[SchemeNorm] = { "#ffffff", "#000000" },
+	[SchemeSel] = { "#000000", "#ebbcba" }, /* RosePine */
+	/* [SchemeSel] = { "#000000", "#88c0d0" }, */
 	[SchemeOut] = { "#bf616a", "#ebcb8b" },
 };
+static const unsigned int alphas[SchemeLast][2] = {
+	/*		fgalpha		bgalphga	*/
+	[SchemeNorm] = { fgalpha, bgalpha },
+	[SchemeSel] = { fgalpha, bgalpha },
+	[SchemeOut] = { fgalpha, bgalpha },
+};
+
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
 
@@ -21,3 +32,4 @@ static unsigned int lines      = 0;
  * for example: " /?\"&[]"
  */
 static const char worddelimiters[] = " ";
+
