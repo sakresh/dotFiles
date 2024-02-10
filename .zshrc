@@ -9,9 +9,12 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}-%f%F{red}>%f '
+#PROMPT='%F{blue}╭─%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f
+#%F{blue}╰─%f%F{red}%(!.#.$)%f '
+#PROMPT='%F{cyan}󰣇%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}-%f%F{red}>%f '
+PROMPT='%F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}>%f%F{red}>%f '
+#PROMPT='%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}-%f%F{red}>%f '
 #PROMPT='%F{red}[%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}]%f$ ' #The new one with git branch integration
-#PROMPT="%B%{$fg[red]%}[%{$fg[cyan]%}%n%{$fg[red]%}@%{$fg[purple]%}%M %{$fg[magenta]%}%~%{$vcs_info_msg_0_[red]%}%{$fg[red]%}]%{$reset_color%}$%b "
 
 #History
 HISTSIZE=10000000
@@ -88,7 +91,8 @@ fi
 
 #Path
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/Flutter/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH="$PATH:$HOME/Flutter/bin"
 export BROWSER="thorium-browser"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
