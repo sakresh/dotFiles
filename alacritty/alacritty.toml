@@ -4,6 +4,9 @@ import = [
     "~/.config/alacritty/rosepine.toml",
 ]
 
+[env]
+  TERM = "xterm-256color"
+
 [cursor]
 blink_interval = 550
 unfocused_hollow = false
@@ -33,4 +36,9 @@ multiplier = 3
 
 [window.padding]
 x = 6
-y = 6
+y = 3
+
+[keyboard]
+bindings = [
+    { key = "f", mods = "Control", command = "~/.local/bin/fuzzy" },
+]
