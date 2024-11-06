@@ -20,7 +20,7 @@ size = 9.7
 
 [font.normal]
 family = "JetBrains Mono"
-style = "Regular"
+style = "Italic"
 
 [selection]
 save_to_clipboard = false
@@ -28,7 +28,7 @@ save_to_clipboard = false
 [window]
 decorations = "none"
 dynamic_title = true
-opacity = 0.8
+opacity = 0.9
 
 [scrolling]
 history = 10000
@@ -38,7 +38,3 @@ multiplier = 3
 x = 6
 y = 3
 
-[keyboard]
-bindings = [
-    { key = "f", mods = "Control", command = "~/.local/bin/fuzzy" },
-]

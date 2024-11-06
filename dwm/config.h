@@ -2,7 +2,7 @@
 #define TERMINAL "alacritty"
 #define TERMCLASS "alacritty"
 #define BROWSER "thorium-browser"
-#define FIREFOX "firefox"
+#define BRAVE "brave"
 #define CODE "code"
 /* #define ANDROID "android-studio-beta" */
 #define FILEMANAGER "thunar"
@@ -171,7 +171,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("~/.local/bin/power") },
     { MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY|ShiftMask,		XK_w,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
-    { MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ FIREFOX, NULL } } },
+    { MODKEY,			XK_e,		spawn,		{.v = (const char*[]){ BRAVE, NULL } } },
     /* { MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") }, */
     { MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "yazi", NULL } } },
     { MODKEY|ShiftMask,		XK_r,		spawn,	{.v = (const char*[]){ FILEMANAGER, NULL } } },
@@ -221,7 +221,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_c,		spawn,		{.v = (const char*[]){ CODE , NULL } } },
-	{ MODKEY|ShiftMask,		XK_c,		spawn,		{.v = (const char*[]){ ANDROID, NULL } } },
+	// { MODKEY|ShiftMask,		XK_c,		spawn,		{.v = (const char*[]){ ANDROID, NULL } } },
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	{ MODKEY|ShiftMask,		XK_b,		spawn,		{.v = (const char*[]){ BLUETOOTH , NULL } } },
@@ -294,8 +294,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_TouchpadToggle,	spawn,		SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
 	{ 0, XF86XK_TouchpadOff,	spawn,		{.v = (const char*[]){ "synclient", "TouchpadOff=1", NULL } } },
 	{ 0, XF86XK_TouchpadOn,		spawn,		{.v = (const char*[]){ "synclient", "TouchpadOff=0", NULL } } },
-	{ 0, XF86XK_MonBrightnessUp,	spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "5", NULL } } },
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "5", NULL } } },
+	{ 0, XF86XK_MonBrightnessUp,	spawn,		{.v = (const char*[]){ "xbacklight", "-inc", "1", NULL } } },
+	{ 0, XF86XK_MonBrightnessDown,	spawn,		{.v = (const char*[]){ "xbacklight", "-dec", "1", NULL } } },
 
 	/* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } }, */
 	/* { MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } }, */

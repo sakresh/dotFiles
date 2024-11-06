@@ -22,6 +22,11 @@ require("lazy").setup({
         event = 'BufEnter'
     },
 
+    -- Git integration with fugitive
+    {
+        "tpope/vim-fugitive",
+    },
+
     -- Fuzzy Finder
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -32,18 +37,6 @@ require("lazy").setup({
 	{
 		{ 'rose-pine/neovim', name = 'rose-pine' }
 	},
-
-	{
-		{ "gbprod/nord.nvim", name = 'nord' }
-	},
-
-    { "catppuccin/nvim", name = "catppuccin" },
-
-    { "rmehri01/onenord.nvim", name = "onenord" },
-
-    { "joshdick/onedark.vim", name = "onedark" },
-
-    { "folke/tokyonight.nvim", name = "tokyonight" },
 
     -- IndenLine
     {
@@ -91,12 +84,23 @@ require("lazy").setup({
 		'mbbill/undotree'
 	},
 
+    -- Trouble for code diagnostics
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+    },
+
     -- AutoPairs
-	{
-		'windwp/nvim-autopairs',
-		event = "InsertEnter",
-		opts = {} -- this is equalent to setup({}) function
-	},
+	-- {
+	-- 	'windwp/nvim-autopairs',
+	-- 	event = "InsertEnter",
+	-- 	opts = {} -- this is equalent to setup({}) function
+	-- },
 
     -- LSP
 	{'williamboman/mason.nvim'},
