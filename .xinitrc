@@ -6,6 +6,8 @@ slstatus &
 
 nitrogen --restore &
 
+setxkbmap -option caps:escape
+
 ~/.local/bin/remaps &
 
 picom &
