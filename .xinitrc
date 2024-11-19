@@ -6,7 +6,7 @@ slstatus &
 
 nitrogen --restore &
 
-setxkbmap -option caps:escape
+setxkbmap -option caps:escape &
 
 ~/.local/bin/remaps &
 

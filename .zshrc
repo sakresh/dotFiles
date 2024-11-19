@@ -9,12 +9,7 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
-#PROMPT='%F{blue}╭─%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f
-#%F{blue}╰─%f%F{red}%(!.#.$)%f '
-#PROMPT='%F{cyan}󰣇%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}-%f%F{red}>%f '
-PROMPT='%F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}>%f%F{red}>%f '
-#PROMPT='%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}-%f%F{red}>%f '
-#PROMPT='%F{red}[%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}]%f$ ' #The new one with git branch integration
+PROMPT='%F{red}[%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}]%f$ ' #The new one with git branch integration
 
 #History
 HISTSIZE=10000000
@@ -55,23 +50,10 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-#lf
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-
 #alias
 alias gcred="git config --global credential.helper store"
-alias ls="ls --color=auto"
-alias la="ls -la"
-alias js="cd ~/Projects/JavaScript/"
-alias rs="cd ~/Projects/Rust/"
+alias ls="eza --color=auto"
+alias la="eza -la"
 alias vim="nvim"
 alias sd="setxkbmap us -v dvorak"
 alias sq="setxkbmap us"
@@ -91,8 +73,10 @@ fi
 
 #Path
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH="$PATH:$HOME/.cargo/bin"
 # export PATH="$PATH:$HOME/Flutter/bin"
 export BROWSER="thorium-browser"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
+
+#source /usr/share/nvm/init-nvm.sh
