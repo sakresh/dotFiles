@@ -82,5 +82,5 @@ export PATH="$PATH:$HOME/.local/bin"
 export BROWSER="thorium-browser"
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-
+export MANPAGER="nvim +Man!"
 #source /usr/share/nvm/init-nvm.sh
