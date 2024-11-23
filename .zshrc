@@ -11,6 +11,9 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%F{red}[%f%F{cyan}%n%f%F{red}@%f%F{red}%M%f %F{blue}%~%f %F{magenta}$(parse_git_branch)%f%F{red}]%f$ ' #The new one with git branch integration
 
+#FZF source
+source <(fzf --zsh)
+
 #History
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -52,13 +55,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 #alias
 alias gcred="git config --global credential.helper store"
-alias ls="eza --color=auto"
-alias la="eza -la"
+alias ls="eza --color=always --git --icons=always"
+alias la="eza -la --color=always --long --git --icons=always"
+alias lt="eza --tree --color=always --icons=always --level=2"
 alias vim="nvim"
 alias sd="setxkbmap us -v dvorak"
 alias sq="setxkbmap us"
 alias f="cd \$(fzf -i | rev | cut -d '/' -f 2- | rev)"
-alias o="vim \$(fzf -i)"
+alias open="vim \$(fzf --preview=\"cat {}\")"
 
 #Auto Completion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
